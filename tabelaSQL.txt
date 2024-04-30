@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS Filiado (
+	nome varchar(40) not null,
+	id_filiado serial PRIMARY KEY,
+	numero_matricula int,
+	cpf char(12),
+	rg varchar(20),
+	data_de_nascimento date,
+	cidade varchar(20),
+	estado varchar(20),
+	bairro varchar(30),
+	residencia varchar(30),
+	estado_civil varchar(20),
+	empresa varchar(20),
+	secao varchar(20),
+	admicao date,
+	status boolean
+);
+
+CREATE TABLE IF NOT EXISTS Parente(
+	parentesco varchar(10) not null,
+	nome varchar(40),
+	data_nascimento date,
+	id_parente serial PRIMARY KEY,
+	id_filiado int,
+	FOREIGN KEY (id_filiado) references Filiado (id_filiado)
+);
